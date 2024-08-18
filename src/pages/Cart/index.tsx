@@ -13,12 +13,15 @@ export const Cart = () => {
   if (!cart_context) {
     return <div>Error: Cart context not found</div>;
   }
-  const { cartItemsArray, removeFromCart } = cart_context;
-
+  const { cartItemsArray, addToCart, removeFromCart, handleQuantity, getQuantityById } = cart_context;
 
   const filteredData = allProducts.products.filter((item: Product) => {
     return cartItemsArray.find((cartItemsArray: any) => cartItemsArray.id === item.id) !== undefined;
   });
+  const totalPrice = filteredData.reduce((total, product) => {
+    const cartItem = cartItemsArray.find((item) => item.id === product.id);
+    return total + (cartItem?.quantity || 0) * product.price;
+  }, 0);
 
   return (
     <>
@@ -30,9 +33,16 @@ export const Cart = () => {
           <div className="mt-6 sm:mt-8 md:gap-6 lg:flex lg:items-start xl:gap-8">
             <div className="mx-auto w-full flex-none lg:max-w-2xl xl:max-w-4xl">
               <div className="space-y-6">
-              {filteredData.map(product => (
-                <CartProductCard key={product.id} product={product} removeFromCart={removeFromCart} />
-              ))}
+              {(filteredData.length > 0) ? filteredData.map(product => (
+                <CartProductCard 
+                  key={product.id}
+                  product={product}
+                  quantity={getQuantityById(product.id)}
+                  addToCart={addToCart}
+                  removeFromCart={removeFromCart} 
+                  handleQuantity={handleQuantity}
+                />
+              )) : <div>There is nothing in your cart</div> }
               </div>
             </div>
 
@@ -44,28 +54,20 @@ export const Cart = () => {
                   <div className="space-y-2">
                     <dl className="flex items-center justify-between gap-4">
                       <dt className="text-base font-normal text-gray-500">Original price</dt>
-                      <dd className="text-base font-medium text-gray-900">$7,592.00</dd>
+                      <dd className="text-base font-medium text-gray-900">$ {totalPrice}</dd>
                     </dl>
 
                     <dl className="flex items-center justify-between gap-4">
-                      <dt className="text-base font-normal text-gray-500">Savings</dt>
-                      <dd className="text-base font-medium text-green-600">-$299.00</dd>
-                    </dl>
-
-                    <dl className="flex items-center justify-between gap-4">
-                      <dt className="text-base font-normal text-gray-5000">Store Pickup</dt>
-                      <dd className="text-base font-medium text-gray-900">$99</dd>
-                    </dl>
-
-                    <dl className="flex items-center justify-between gap-4">
-                      <dt className="text-base font-normal text-gray-500">Tax</dt>
-                      <dd className="text-base font-medium text-gray-900">$799</dd>
+                      <dt className="text-base font-normal text-gray-500">Discount</dt>
+                      <dd className="text-base font-medium text-gray-900">FLAT 10%</dd>
                     </dl>
                   </div>
 
-                  <dl className="flex items-center justify-between gap-4 border-t border-gray-200 pt-2">
+                  <hr/>
+
+                  <dl className="flex items-center justify-between gap-4">
                     <dt className="text-base font-bold text-gray-900">Total</dt>
-                    <dd className="text-base font-bold text-gray-900">$8,191.00</dd>
+                    <dd className="text-base font-bold text-gray-900">$ {totalPrice*0.9}</dd>
                   </dl>
                 </div>
 

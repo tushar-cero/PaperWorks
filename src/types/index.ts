@@ -9,11 +9,11 @@ export interface HeaderProps {
 
 export interface ListingProps {
     productsData: Product[];
-    addToCart(id: string): void;
+    addToCart: (id:string) => void
 }
 export interface ProductCardProps {
     product: Product;
-    addToCart(id: string): void;
+    addToCart: (id:string) => void
 }
 export interface Product {
     id: string;
@@ -31,10 +31,15 @@ export interface CartItems {
 }
 export interface CartProductCardProps {
     product: Product;
+    quantity: number;
+    addToCart: (id: string) => void;
+    handleQuantity: (id:string) => void;
     removeFromCart: (id: string) => void;
 }
 export interface CartContextType {
     cartItemsArray: CartItems[];
     addToCart: (id: string) => void;
     removeFromCart: (id: string) => void;
+    handleQuantity: (id:string) => void;
+    getQuantityById: (id:string) => number;
 }
