@@ -1,3 +1,20 @@
+// Header
+
+export interface HeaderProps {
+    cartItemsCount?: number;
+    hideCart?: boolean;
+}
+
+// Product
+
+export interface ListingProps {
+    productsData: Product[];
+    addToCart(id: string): void;
+}
+export interface ProductCardProps {
+    product: Product;
+    addToCart(id: string): void;
+}
 export interface Product {
     id: string;
     name: string;
@@ -5,26 +22,19 @@ export interface Product {
     description: string;
     img: string;
 }
-export interface ListingProps {
-    productsData: Product[];
-    handleAddtoCart(id: string): void;
-}
-export interface ProductCardProps {
-    product: Product;
-    handleAddtoCart(id: string): void;
-}
-export interface HeaderProps {
-    cartItems: number
-}
+
+// Cart
+
 export interface CartItems {
-    id: string;
-}
-export interface CartItem {
     id: string;
     quantity: number;
 }
-
+export interface CartProductCardProps {
+    product: Product;
+    removeFromCart: (id: string) => void;
+}
 export interface CartContextType {
-    cartItems: CartItem[];
-    handleAddToCart: (id: string) => void;
+    cartItemsArray: CartItems[];
+    addToCart: (id: string) => void;
+    removeFromCart: (id: string) => void;
 }
