@@ -1,8 +1,13 @@
-import React from 'react'
-import ProductCard from '../ProductCard'
+// ----- Library Imports
+import React, { useCallback } from 'react'
+
+// ----- Utility Imports
 import { ListingProps } from '../../types';
 
-const ListingPage: React.FC<ListingProps> = (props) => {
+// ----- Component Imports
+import ProductCard from '../ProductCard'
+
+export const ListingPage: React.FC<ListingProps> = useCallback((props) => {
     const { productsData, addToCart } = props;
     return (
         <div className='mb-4 grid gap-4 sm:grid-cols-2 md:mb-8 lg:grid-cols-3 xl:grid-cols-4'>
@@ -11,6 +16,4 @@ const ListingPage: React.FC<ListingProps> = (props) => {
             )}
         </div>
     )
-}
-
-export default ListingPage
+}, []);

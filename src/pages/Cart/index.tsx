@@ -1,12 +1,19 @@
-import React, {useContext} from 'react'
+// ----- Library Imports
+import React, {useCallback, useContext} from 'react'
 import { Link } from 'react-router-dom';
-import Header from '../../components/Header';
-import allProducts from '../../locale/productData.json';
-import CartProductCard from '../../components/CardProductCard';
+
+// ----- Utility Imports
 import { Product } from '../../types';
+import allProducts from '../../locale/productData.json';
+import translationJSON from '../../locale/translation.json';
 import { CartContext } from '../../App';
 
-export const Cart = () => {
+// ----- Component Imports
+import { Header } from '../../components/Header';
+import { CartProductCard } from '../../components/CardProductCard';
+import { RightArrow } from '../../assets/svgicons';
+
+export const Cart = useCallback(() => {
 
   const cart_context = useContext(CartContext);
   
@@ -71,15 +78,13 @@ export const Cart = () => {
                   </dl>
                 </div>
 
-                <a href="#" className="flex w-full items-center justify-center rounded-lg bg-blue-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300">Proceed to Checkout</a>
+                <a href="#" className="flex w-full items-center justify-center rounded-lg bg-blue-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300">{translationJSON.buttons.proceedToCheckout}</a>
 
                 <div className="flex items-center justify-center gap-2">
                   <span className="text-sm font-normal text-gray-500"> or </span>
                   <Link to="/" title="" className="inline-flex items-center gap-2 text-sm font-medium text-blue-700 underline hover:no-underline">
-                    Continue Shopping
-                    <svg className="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                      <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 12H5m14 0-4 4m4-4-4-4" />
-                    </svg>
+                  {translationJSON.buttons.continueShopping}
+                    <RightArrow/>
                   </Link>
                 </div>
               </div>
@@ -89,4 +94,4 @@ export const Cart = () => {
       </section>
     </>
   );
-};
+}, []);

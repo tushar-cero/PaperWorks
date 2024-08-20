@@ -1,10 +1,15 @@
-import React, {useContext} from 'react';
-import Header from '../../components/Header';
-import ListingPage from '../../components/ListingPage';
+// ----- Library Imports
+import React, {useCallback, useContext} from 'react';
+
+// ----- Utility Imports
 import allProducts from '../../locale/productData.json';
 import { CartContext } from '../../App';
 
-export const ProductPage = () => {
+// ----- Component Imports
+import { Header } from '../../components/Header';
+import { ListingPage } from '../../components/ListingPage';
+
+export const ProductPage = useCallback(() => {
 
   const cart_context = useContext(CartContext);
   if (!cart_context) {
@@ -26,4 +31,4 @@ export const ProductPage = () => {
       </section>
     </>
   )
-}
+}, []);

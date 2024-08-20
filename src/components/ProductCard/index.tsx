@@ -1,7 +1,11 @@
-import React from 'react';
-import { ProductCardProps } from '../../types';
+// ----- Library Imports
+import React, { useCallback } from 'react';
 
-const ProductCard: React.FC<ProductCardProps> = ({ product, addToCart }) => {
+// ----- Utility Imports
+import { ProductCardProps } from '../../types';
+import translationJSON from '../../locale/translation.json';
+
+const ProductCard: React.FC<ProductCardProps> = useCallback(({ product, addToCart }) => {
     return (
         <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow">
             <img className="rounded-t-lg" src={product.img} alt={product.name} />
@@ -14,12 +18,12 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, addToCart }) => {
                         onClick={()=>addToCart(product.id)}
                         className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
                     >
-                        Add to cart
+                        {translationJSON.buttons.addToCart}
                     </button>
                 </div>
             </div>
         </div>
     );
-};
+}, []);
 
 export default ProductCard;

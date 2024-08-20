@@ -1,10 +1,13 @@
-import React from 'react';
-import Cart from '../../assets/Cart';
-import Avatar from '../../assets/Avatar';
-import { HeaderProps } from '../../types';
+// ----- Library Imports
+import React, { useCallback } from 'react';
 import { Link } from 'react-router-dom';
+// ----- Utility Imports
+import { HeaderProps } from '../../types';
+// ----- Component Imports
+import { Cart } from '../../assets/svgicons';
+import { Avatar } from '../../assets/svgicons';
 
-const Header = (props: HeaderProps) => {
+export const Header = useCallback((props: HeaderProps) => {
 
     const { cartItemsCount, hideCart } = props;
     return (
@@ -20,6 +23,4 @@ const Header = (props: HeaderProps) => {
             </nav>
         </header>
     );
-};
-
-export default Header;
+}, []);

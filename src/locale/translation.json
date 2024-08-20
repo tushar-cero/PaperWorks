@@ -1,5 +1,13 @@
 {
     "copywriting": {
-        "errorMessage": "Here is an error message"
+        "errorMessage": "Here is an error message",
+        "cartEmptyState": "There is nothing in your cart."
+    },
+    "buttons": {
+        "addToCart": "Add to Cart",
+        "removeFromCart": "Remove",
+        "orderSummary": "Order Summary",
+        "proceedToCheckout": "Proceed to Checkout",
+        "continueShopping": "Continue Shopping"
     }
 }
