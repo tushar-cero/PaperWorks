@@ -21,6 +21,11 @@ export const Cart = () => {
     return total + (cartItem?.quantity || 0) * product.price;
   }, 0);
 
+  const handleQuantityCount = (id: string) => {
+    const foundItem = cartItemsArray.find(item => item.id === id);
+    return foundItem ? foundItem.quantity : 0;
+  }
+
   return (
     <section className="bg-white py-8 antialiased">
       <div className="mx-auto max-w-screen-xl px-4 2xl:px-0">
@@ -33,6 +38,7 @@ export const Cart = () => {
               <CartProductCard 
                 key={product.id}
                 product={product}
+                quantity={handleQuantityCount(product.id)}
               />
             )) : <div>{translationJSON.copywriting.emptyCart}</div>}
             </div>
@@ -46,7 +52,7 @@ export const Cart = () => {
                 <div className="space-y-2">
                   <dl className="flex items-center justify-between gap-4">
                     <dt className="text-base font-normal text-gray-500">Original price</dt>
-                    <dd className="text-base font-medium text-gray-900">$ {totalPrice}</dd>
+                    <dd className="text-base font-medium text-gray-900">$ {(totalPrice).toFixed(2)}</dd>
                   </dl>
 
                   <dl className="flex items-center justify-between gap-4">
@@ -59,7 +65,7 @@ export const Cart = () => {
 
                 <dl className="flex items-center justify-between gap-4">
                   <dt className="text-base font-bold text-gray-900">Total</dt>
-                  <dd className="text-base font-bold text-gray-900">$ {totalPrice*0.9}</dd>
+                  <dd className="text-base font-bold text-gray-900">$ {(totalPrice*0.9).toFixed(2)}</dd>
                 </dl>
               </div>
 

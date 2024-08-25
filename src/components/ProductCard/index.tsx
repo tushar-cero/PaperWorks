@@ -25,7 +25,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           </p>
           <span className="flex justify-center items-center gap-1 rounded bg-yellow-200 px-2 py-1 text-xs font-semibold"><Stars/> {product.rating}</span>
         </div>
-        <button onClick={() => dispatch(addToCart(product.id))} className="flex items-center gap-4 w-full justify-center rounded-md bg-slate-900 px-5 py-2.5 text-center font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-blue-300">
+        <button onClick={() => dispatch(addToCart({id: product.id}))} className="flex items-center gap-4 w-full justify-center rounded-md bg-slate-900 px-5 py-2.5 text-center font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-blue-300">
           <Cart />{translationJSON.buttons.addToCart}
         </button>
       </div>

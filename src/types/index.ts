@@ -31,4 +31,6 @@ export interface Product {
 
 // Cart
 
-export interface CartProductCardProps extends ProductCardProps {}
+export interface CartProductCardProps extends ProductCardProps {
+    quantity: number;
+}
