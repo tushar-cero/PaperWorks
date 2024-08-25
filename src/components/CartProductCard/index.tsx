@@ -1,16 +1,16 @@
-// ----- Library Imports
-import React, { useCallback } from 'react';
-
-// ----- Utility Imports
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../store';
+import { addToCart, reduceQuantityFromCart, removeFromCart } from '../../store/cartSlice';
 import translationJSON from '../../locale/translation.json';
-
-// ----- Component Imports
 import { CartProductCardProps } from '../../types';
 import { MinusIcon, PlusIcon } from '../../assets/svgicons';
+import { useDispatch } from 'react-redux';
 
-export const CartProductCard: React.FC<CartProductCardProps> = useCallback((props) => {
+export const CartProductCard: React.FC<CartProductCardProps> = ({ product }) => {
 
-  const {product, quantity, addToCart, removeFromCart, handleQuantity} = props;
+  const dispatch = useDispatch();
+  const { cartItemCount } = useSelector((state: RootState) => state.cart)
 
   return (
     <div className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm">
@@ -24,10 +24,10 @@ export const CartProductCard: React.FC<CartProductCardProps> = useCallback((prop
         </div>
 
         <div className="flex items-center">
-          <button type="button" onClick={()=>handleQuantity(product.id)} id="decrement-button" data-input-counter-decrement="counter-input" className="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-gray-300 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-100">
+          <button type="button" onClick={()=>dispatch(reduceQuantityFromCart(product.id))} id="decrement-button" data-input-counter-decrement="counter-input" className="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-gray-300 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-100">
             <PlusIcon />
           </button>
-          <input readOnly type="text" id="counter-input" data-input-counter className="w-10 shrink-0 border-0 bg-transparent text-center text-sm font-medium text-gray-900 focus:outline-none focus:ring-0" placeholder="" value={quantity} required />
+          <input readOnly type="text" id="counter-input" data-input-counter className="w-10 shrink-0 border-0 bg-transparent text-center text-sm font-medium text-gray-900 focus:outline-none focus:ring-0" placeholder="" value={cartItemCount} required />
           <button type="button" onClick={()=>addToCart(product.id)} id="increment-button" data-input-counter-increment="counter-input" className="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-gray-300 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-100">
             <MinusIcon />
           </button>
@@ -42,4 +42,4 @@ export const CartProductCard: React.FC<CartProductCardProps> = useCallback((prop
       </div>
     </div>
   );
-}, []);
+};

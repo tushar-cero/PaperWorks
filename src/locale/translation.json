@@ -1,7 +1,9 @@
 {
     "copywriting": {
         "errorMessage": "Here is an error message",
-        "cartEmptyState": "There is nothing in your cart."
+        "cartEmptyState": "There is nothing in your cart.",
+        "AppName": "PaperWorks",
+        "emptyCart": "There is nothing in your cart"
     },
     "buttons": {
         "addToCart": "Add to Cart",
