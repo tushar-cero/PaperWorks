@@ -4,6 +4,7 @@ import { addToCart } from '../../store/cartSlice';
 import { ProductCardProps } from '../../types';
 import translationJSON from '../../locale/translation.json';
 import { Cart, Heart, Stars } from '../../assets/svgicons';
+import { addTofavorite } from '../../store/favoriteSlice';
 
 export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 
@@ -14,7 +15,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       <div className="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-lg">
         <img className="object-cover" src={product.img} alt="product image" />
         <span className="absolute top-0 left-0 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white">{100-Math.ceil((product.price*100)/product.original_price)}% OFF</span>
-        <span className="absolute top-0 right-0 m-2 rounded-full bg-black bg-opacity-10 p-2 text-white"><Heart/></span>
+        <button onClick={()=>dispatch(addTofavorite(product.id))} className="absolute top-0 right-0 m-2 rounded-full bg-black bg-opacity-10 p-2 text-white"><Heart/></button>
       </div>
       <div className="mt-4 px-5 pb-5">
         <h5 className="text-xl tracking-tight text-slate-900">{product.name}</h5>

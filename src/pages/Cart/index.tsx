@@ -2,21 +2,20 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
+import { RootState } from '../../store';
 import allProducts from '../../locale/productData.json';
 import translationJSON from '../../locale/translation.json';
-import { Product } from '../../types';
 import { RightArrow } from '../../assets/svgicons';
+import { filterProductsByIds } from '../../utils/utilityFunctions';
+
 import { CartProductCard } from '../../components/CartProductCard';
-import { RootState } from '../../store';
 
 export const Cart = () => {
 
   const {cartItemsArray } = useSelector((state: RootState) => state.cart);
+  const productsInCart = filterProductsByIds(cartItemsArray, allProducts.products);
 
-  const filteredData = allProducts.products.filter((item: Product) => {
-    return cartItemsArray.find((cartItemsArray: any) => cartItemsArray.id === item.id) !== undefined;
-  });
-  const totalPrice = filteredData.reduce((total, product) => {
+  const totalPrice = productsInCart.reduce((total, product) => {
     const cartItem = cartItemsArray.find((item) => item.id === product.id);
     return total + (cartItem?.quantity || 0) * product.price;
   }, 0);
@@ -34,7 +33,7 @@ export const Cart = () => {
         <div className="mt-6 sm:mt-8 md:gap-6 lg:flex lg:items-start xl:gap-8">
           <div className="mx-auto w-full flex-none lg:max-w-2xl xl:max-w-4xl">
             <div className="space-y-6">
-            {(filteredData.length > 0) ? filteredData.map(product => (
+            {(productsInCart.length > 0) ? productsInCart.map(product => (
               <CartProductCard 
                 key={product.id}
                 product={product}
