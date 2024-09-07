@@ -1,13 +1,13 @@
 import React from 'react';
 import { ListingProps } from '../../types';
-import { ProductCard } from '../ProductCard'
+import { ProductCard } from '../ProductCards/Product';
 
 export const ListingPage: React.FC<ListingProps> = (props) => {
-  const { productsData } = props;
+  const { productsData, DisplayCard } = props;
   return (
-    <div className='grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
+    <div className='flex flex-wrap justify-center items-center gap-4 w-fit'>
       { productsData.map((product) => 
-          <ProductCard key={product.id} product={product}/>
+          <DisplayCard key={product.id} product={product}/>
       )}
     </div>
   )

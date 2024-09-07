@@ -1,11 +1,11 @@
 import React from 'react';
-import { addToCart, reduceQuantityFromCart, removeFromCart } from '../../store/cartSlice';
-import translationJSON from '../../locale/translation.json';
-import { CartProductCardProps } from '../../types';
-import { MinusIcon, PlusIcon } from '../../assets/svgicons';
+import { addToCart, reduceQuantityFromCart, removeFromCart } from '../../../store/cartSlice';
+import translationJSON from '../../../locale/translation.json';
+import { CartProductCardProps } from '../../../types';
+import { MinusIcon, PlusIcon } from '../../../assets/svgicons';
 import { useDispatch } from 'react-redux';
 
-export const CartProductCard: React.FC<CartProductCardProps> = ({ product, quantity }) => {
+export const CartProduct: React.FC<CartProductCardProps> = ({ product, quantity }) => {
 
   const dispatch = useDispatch();
 

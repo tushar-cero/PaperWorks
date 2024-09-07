@@ -3,10 +3,10 @@ import cartReducer from './cartSlice';
 import favoriteReducer from './favoriteSlice';
 
 export const store = configureStore({
-    reducer: {
-        cart: cartReducer,
-        favorite: favoriteReducer
-    }
+  reducer: {
+    cart: cartReducer,
+    favorite: favoriteReducer
+  }
 });
 
 export type RootState = ReturnType<typeof store.getState>;

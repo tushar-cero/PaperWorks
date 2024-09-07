@@ -4,23 +4,11 @@ export interface AssetSizeProps {
   size?: string;
 }
 
-// ----- Cart
-
-export interface CartItem {
-  id: string;
-  quantity: number;
-}
-
-// ----- Favourites
-
-export interface FavoriteItem {
-  id: string;
-}
-
 // ----- Product
 
 export interface ListingProps {
   productsData: Product[];
+  DisplayCard: React.ComponentType<any>;
 }
 export interface ProductCardProps {
   product: Product;
@@ -39,8 +27,24 @@ export interface ProductDescription extends Product {
   detailedDescription: string;
 }
 
-// Cart
+// ----- Cart
 
 export interface CartProductCardProps extends ProductCardProps {
   quantity: number;
+}
+
+export interface CartItem {
+  id: string;
+  quantity: number;
+}
+
+// ----- Favourites
+
+export interface FavoriteItem {
+  id: string;
+}
+
+export interface FavoriteInitialStateInterface {
+  favoriteItemsArray: string[];
+  favoriteItemCount: number;
 }

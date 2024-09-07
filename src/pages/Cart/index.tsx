@@ -8,11 +8,11 @@ import translationJSON from '../../locale/translation.json';
 import { RightArrow } from '../../assets/svgicons';
 import { filterProductsByIds } from '../../utils/utilityFunctions';
 
-import { CartProductCard } from '../../components/CartProductCard';
+import { CartProduct } from '../../components/ProductCards/Cart';
 
 export const Cart = () => {
 
-  const {cartItemsArray } = useSelector((state: RootState) => state.cart);
+  const { cartItemsArray } = useSelector((state: RootState) => state.cart);
   const productsInCart = filterProductsByIds(cartItemsArray, allProducts.products);
 
   const totalPrice = productsInCart.reduce((total, product) => {
@@ -34,7 +34,7 @@ export const Cart = () => {
           <div className="mx-auto w-full flex-none lg:max-w-2xl xl:max-w-4xl">
             <div className="space-y-6">
             {(productsInCart.length > 0) ? productsInCart.map(product => (
-              <CartProductCard 
+              <CartProduct 
                 key={product.id}
                 product={product}
                 quantity={handleQuantityCount(product.id)}
