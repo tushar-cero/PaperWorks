@@ -25,7 +25,7 @@ export const Header = () => {
 
   return (
     <header>
-      <nav className="border-gray-200 px-4 lg:px-6 py-6">
+      <nav className="fixed z-50 w-full border-gray-200 bg-white px-4 lg:px-6 py-6">
         <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
           
           <button onClick={handleProductPageToggle} className="self-center text-xl font-semibold whitespace-nowrap">

@@ -7,8 +7,6 @@ import { ProductCard } from '../../components/ProductCards/Product';
 export const ProductPage = () => {
 
   return (
-    <section className="bg-white antialiased">
-      <ListingPage productsData={allProducts.products} DisplayCard={ProductCard} />
-    </section>
+    <ListingPage productsData={allProducts.products} DisplayCard={ProductCard} />
   )
 };

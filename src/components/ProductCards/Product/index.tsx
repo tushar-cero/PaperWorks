@@ -6,12 +6,17 @@ import translationJSON from '../../../locale/translation.json';
 import { Cart, Heart, Stars } from '../../../assets/svgicons';
 import { addToFavorite } from '../../../store/favoriteSlice';
 
-export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
+export const ProductCard: React.FC<ProductCardProps> = ({ product, setCurrentProduct }) => {
 
   const dispatch = useDispatch();
 
+  function handleCardClick(id: string): void {
+    console.log('setting current product as', id);
+    setCurrentProduct(id);
+  }
+
   return (
-    <div className="w-6/12 relative flex max-w-xs flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm">
+    <div onClick={()=>handleCardClick(product.id)} className="w-6/12 relative flex max-w-xs flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm">
       <div className="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-lg">
         <img className="object-cover" src={product.img} alt="product image" />
         <span className="absolute top-0 left-0 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white">{100-Math.ceil((product.price*100)/product.original_price)}% OFF</span>

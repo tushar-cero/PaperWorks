@@ -1,12 +1,12 @@
 import React from 'react'
 import { useDispatch } from 'react-redux';
 import translationJSON from '../../../locale/translation.json';
-import { CartProductCardProps } from '../../../types';
+import { FavoriteCardProps } from '../../../types';
 import { removeFromFavorite } from '../../../store/favoriteSlice';
 import { Stars } from '../../../assets/svgicons';
 import { addToCart } from '../../../store/cartSlice';
 
-export const FavoriteCard: React.FC<CartProductCardProps> = ({ product }) => {
+export const FavoriteCard: React.FC<FavoriteCardProps> = ({ product, setCurrentProduct }) => {
     const dispatch = useDispatch();
 
     function handleMoveToCartAndRemoveFromFavorite(id: string): void {
@@ -14,8 +14,12 @@ export const FavoriteCard: React.FC<CartProductCardProps> = ({ product }) => {
       dispatch(removeFromFavorite({id}));
     }
 
+    function handleCardClick(id: string): void {
+      setCurrentProduct(id);
+    }
+
     return (
-        <div className="w-6/12 relative flex max-w-xs flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm">
+      <div onClick={()=>handleCardClick(product.id)}  className="w-6/12 relative flex max-w-xs flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm">
         <div className="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-lg">
           <img className="object-cover" src={product.img} alt="product image" />
           <span className="absolute top-0 left-0 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white">{100-Math.ceil((product.price*100)/product.original_price)}% OFF</span>

@@ -12,6 +12,7 @@ export interface ListingProps {
 }
 export interface ProductCardProps {
   product: Product;
+  setCurrentProduct: React.Dispatch<React.SetStateAction<string | null>>;
 }
 export interface Product {
   id: string;
@@ -27,9 +28,19 @@ export interface ProductDescription extends Product {
   detailedDescription: string;
 }
 
+// ----- Product Description
+
+
+export interface ProductDescriptionInterface {
+  targetId: string | null;
+  setCurrentProduct: React.Dispatch<React.SetStateAction<string | null>>;
+}
+
+
 // ----- Cart
 
-export interface CartProductCardProps extends ProductCardProps {
+export interface CartProductCardProps {
+  product: Product;
   quantity: number;
 }
 
@@ -40,11 +51,11 @@ export interface CartItem {
 
 // ----- Favourites
 
-export interface FavoriteItem {
-  id: string;
-}
-
 export interface FavoriteInitialStateInterface {
   favoriteItemsArray: string[];
   favoriteItemCount: number;
+}
+
+export interface FavoriteCardProps extends CartProductCardProps {
+  setCurrentProduct: React.Dispatch<React.SetStateAction<string | null>>;
 }
