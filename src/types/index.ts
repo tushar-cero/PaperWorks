@@ -2,6 +2,7 @@
 
 export interface AssetSizeProps {
   size?: string;
+  colorCode?: string;
 }
 
 // ----- Product

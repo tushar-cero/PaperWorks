@@ -1,11 +1,12 @@
 import React from 'react';
 
+import { useLocation, useNavigate } from 'react-router-dom';
+import { RootState } from '../../store';
+import { useSelector } from 'react-redux';
+
+import translationJSON from '../../locale/translation.json';
 import { Cart, Heart } from '../../assets/svgicons';
 import { Avatar } from '../../assets/svgicons';
-import { useLocation, useNavigate } from 'react-router-dom';
-import translationJSON from '../../locale/translation.json';
-import { useSelector } from 'react-redux';
-import { RootState } from '../../store';
 
 export const Header = () => {
 

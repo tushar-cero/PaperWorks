@@ -89,6 +89,60 @@
       "rating": "3.5",
       "description": "A sophisticated gift set featuring a high-quality rollerball pen and a matching leather-bound notebook. Perfect for professionals and stationery enthusiasts.",
       "img": "https://orbiz.in/cdn/shop/files/01_0039_8a.jpg"
-    }
+    },
+    {
+      "id": "1a2b3c4d5e",
+      "name": "Fine-Tip Fountain Pen",
+      "price": 29.99,
+      "original_price": 35,
+      "rating": "4.2",
+      "description": "A smooth-writing fountain pen with a fine nib. Comes with a bottle of ink and a pen holder. Ideal for writing letters and notes.",
+      "img": "https://scooboo.in/cdn/shop/products/kaco-pure-gel-pens-07mm-pack-of-10-gel-pens-scooboo-573790.jpg"
+    },
+    {
+      "id": "2f3g4h5i6j",
+      "name": "Leather-Bound Daily Planner",
+      "price": 39.99,
+      "original_price": 45,
+      "rating": "4.5",
+      "description": "A stylish and functional daily planner with a leather cover. Features weekly and monthly views, as well as space for notes and appointments.",
+      "img": "https://scooboo.in/cdn/shop/products/kaco-noble-a5-notebook-setkacoscooboo-903806.jpg"
+    },
+    {
+      "id": "3k4l5m6n7o",
+      "name": "Hardcover Sketchbook - 100 Pages",
+      "price": 14.99,
+      "original_price": 19,
+      "rating": "4.0",
+      "description": "A high-quality hardcover sketchbook with 100 pages of smooth, acid-free paper. Perfect for drawing, painting, and doodling.",
+      "img": "https://scooboo.in/cdn/shop/products/flexbook-flex-global-sketchbook-black-blank-large-plain-scooboo-714837.jpg"
+    },
+    {
+      "id": "4p5q6r7s8t",
+      "name": "Neon Gel Highlighter - Yellow",
+      "price": 4.99,
+      "original_price": 6,
+      "rating": "4.7",
+      "description": "A bright and vibrant neon gel highlighter in yellow. Ideal for highlighting text in books, notes, and documents.",
+      "img": "https://scooboo.in/cdn/shop/files/pilot-ilmilly-two-color-highlighter-highlighter-scooboopilot-japansil-15sl-em-523115.jpg"
+    },
+    {
+      "id": "5u6v7w8x9y",
+      "name": "6-Color Gel Highlighter Set",
+      "price": 12.99,
+      "original_price": 15,
+      "rating": "4.3",
+      "description": "A set of six vibrant gel highlighters in different colors. Perfect for highlighting text in books, notes, and documents.",
+      "img": "https://scooboo.in/cdn/shop/products/stabilo-boss-pastel-highlighter-pen-set-297934.jpg"
+    },
+    {
+      "id": "6z7a8b9c0d",
+      "name": "Sticky Notes - 100 Sheets",
+      "price": 6.99,
+      "original_price": 8,
+      "rating": "4.6",
+      "description": "A pack of 100 high-quality sticky notes in various sizes. Perfect for jotting down reminders, to-do lists, and ideas.",
+      "img": "https://scooboo.in/cdn/shop/products/papercoal-sticky-notessticky-notespapercoalscooboo695896857412-762790.jpg"
+    }    
   ]
 }
