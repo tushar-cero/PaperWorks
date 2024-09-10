@@ -18,11 +18,14 @@ export interface ProductCardProps {
 export interface Product {
   id: string;
   name: string;
+  tagline: string;
+  description: string;
   price: number;
   original_price: number;
   rating: string;
-  description: string;
   img: string;
+  category: string;
+  tags: string[];
 }
 
 export interface ProductDescription extends Product {
@@ -60,3 +63,4 @@ export interface FavoriteInitialStateInterface {
 export interface FavoriteCardProps extends CartProductCardProps {
   setCurrentProduct: React.Dispatch<React.SetStateAction<string | null>>;
 }
+
