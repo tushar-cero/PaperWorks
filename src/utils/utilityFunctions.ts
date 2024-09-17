@@ -9,6 +9,15 @@ export const filterSimpleProductsByIds = (filteringArray: any, allProducts: Prod
   return allProducts.filter(product => filteringArray.includes(product.id));
 }
 
-export const totolCostCalculator = () => {
+export const searchProductsByTag = (
+  allProducts: Product[],
+  searchTag: string
+): Product[] => {
+  if (searchTag === '') {
+    return allProducts;
+  }
 
+  return allProducts.filter(product =>
+    product.tags.some(tag => tag.toLowerCase().includes(searchTag.toLowerCase()))
+  );
 }

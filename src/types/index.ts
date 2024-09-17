@@ -1,8 +1,9 @@
 // ----- Assets
 
 export interface AssetSizeProps {
-  size?: string;
-  colorCode?: string;
+  size?: number;
+  color?: string;
+  strokeWidth?: number;
 }
 
 // ----- Product

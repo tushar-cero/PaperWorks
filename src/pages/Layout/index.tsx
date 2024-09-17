@@ -7,6 +7,6 @@ export const Layout = () => {
     <>
       <Header/>
       <Outlet/>
-  </>
+    </>
   )
 }
