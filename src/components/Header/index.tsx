@@ -53,12 +53,11 @@ export const Header = () => {
             className='flex justify-center items-center border border-gray-300 rounded-lg'
             onSubmit={handleHeaderSearchSubmission}
           >
-            <input 
-              type="search" 
-              id="search-dropdown" 
-              className="border-none w-[300px] p-2.5 text-sm text-gray-900 rounded-lg" 
-              placeholder={translationJSON.copywriting.headerSearchPlaceholder} 
-              required 
+            <input
+              type="search"
+              id="search-dropdown"
+              className="border-none w-[300px] p-2.5 text-sm text-gray-900 rounded-lg"
+              placeholder={translationJSON.copywriting.headerSearchPlaceholder}
               value={headerSearchTerm}
               onChange={(e) => setHeaderSearchTerm(e.target.value)}
             />

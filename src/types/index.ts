@@ -65,3 +65,7 @@ export interface FavoriteCardProps extends CartProductCardProps {
   setCurrentProduct: React.Dispatch<React.SetStateAction<string | null>>;
 }
 
+// ----- Utilities
+
+export type SortByParameterEnum  = 'price' | 'rating';
+export type SortByTypeEnum = 'ascending' | 'descending';
