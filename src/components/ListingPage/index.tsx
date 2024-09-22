@@ -12,11 +12,12 @@ export const ListingPage: React.FC<ListingProps> = (props) => {
   const [selectedSortOption, setSelectedSortOption] = useState<string>('Sort');
 
   const handleSelectedSortOptionChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    console.log('sorting triggered', selectedSortOption);
     const newSortOption = e.target.value;
     setSelectedSortOption(newSortOption);
     let tempProducts: Product[] = [];
     switch (newSortOption) {
+      case 'Sort':
+        tempProducts = [];
       case 'Price (high to low)':
         tempProducts = sortProductsByPriceOrRating(productsData, 'price', 'descending');
         break;
@@ -30,7 +31,7 @@ export const ListingPage: React.FC<ListingProps> = (props) => {
         tempProducts = sortProductsByPriceOrRating(productsData, 'rating', 'ascending');
         break;
       default:
-        tempProducts = [...productsData];
+        tempProducts = [];
         break;
     }
     setCurrentProductData(tempProducts); 

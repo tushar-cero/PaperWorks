@@ -22,18 +22,15 @@ export const searchProductsByTag = (
   );
 }
 
-export const sortProductsByPriceOrRating = (products: Product[], sortBy: SortByParameterEnum, order: SortByTypeEnum): Product[] => {
-  console.log('function triggered');
-  return products.slice().sort((a, b) => {
-    const valueA = a[sortBy];
-    const valueB = b[sortBy];
-    
-    if (order === 'ascending') {
-      console.log('function concluded ascending',sortBy, order);
-      return valueA < valueB ? -1 : valueA > valueB ? 1 : 0;
-    } else {
-      console.log('function concluded ascending',sortBy, order);
-      return valueA > valueB ? -1 : valueA < valueB ? 1 : 0;
-    }
-  });
+export const sortProductsByPriceOrRating = (
+  products: Product[], 
+  sortBy: SortByParameterEnum, 
+  order: SortByTypeEnum
+): Product[] => {
+  return products.sort((a: Product , b: Product) => {
+    return (order === 'ascending') ?
+      Number(a[sortBy]) - Number(b[sortBy])
+      :
+      Number(b[sortBy]) - Number(a[sortBy]);
+  })
 }
