@@ -1,4 +1,4 @@
-# PaperWords
+# PaperWorks
 This project is a basic e-commerce application built using modern web technologies including React, TypeScript, Tailwind CSS, Redux Toolkit, and Redux Persist. It features product pages, a shopping cart, a wishlist, and a checkout system. The app does not have a backend, and data is served through a static JSON file.
 
 [Deployed Link](paper-works.netlify.app)
